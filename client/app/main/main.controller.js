@@ -9,6 +9,11 @@ angular.module('medicationReminderApp').controller('MainCtrl', function ($scope,
         $scope.meds = meds.data;
     });
 
+    var today = moment().format('MM-DD-YYYY');
+    $http.get('/api/interactions?day=' + today).then(function (interactions) {
+        $scope.interactions = interactions.data;        
+    });
+
     $window.setInterval(function () {
         $scope.currentTime = moment().format('MMMM Do YYYY, h:mm:ss a');
         $scope.$apply();

@@ -4,6 +4,7 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var MedicationSchema = new Schema({
+    rxcui: String,
     name: String,
     dosage: String,
     time: Date,
